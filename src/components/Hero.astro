@@ -1,0 +1,50 @@
+---
+interface Props {
+  eyebrow: string;
+  headlineLead: string; // e.g. "Software that grows your"
+  headlineHighlight: string; // e.g. "business." — rendered in gold
+  subtext: string;
+  primaryLabel: string;
+  primaryHref: string;
+  secondaryLabel: string;
+  secondaryHref: string;
+}
+
+const {
+  eyebrow,
+  headlineLead,
+  headlineHighlight,
+  subtext,
+  primaryLabel,
+  primaryHref,
+  secondaryLabel,
+  secondaryHref,
+} = Astro.props;
+---
+
+<section class="hero-forest relative text-white">
+  <div class="accent-bar absolute left-0 top-0 bottom-0 w-[7px]"></div>
+  <div class="mx-auto max-w-6xl px-7 py-20 md:py-28">
+    <p class="text-xs font-bold uppercase tracking-[0.15em] text-gold-light">
+      {eyebrow}
+    </p>
+    <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.12] md:text-6xl">
+      {headlineLead} <span class="text-gold-light">{headlineHighlight}</span>
+    </h1>
+    <p class="mt-5 max-w-xl text-base text-cream/85 md:text-lg">{subtext}</p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a
+        href={primaryHref}
+        class="rounded-lg bg-gold px-6 py-3 text-sm font-extrabold text-white transition-colors hover:bg-gold-deep"
+      >
+        {primaryLabel}
+      </a>
+      <a
+        href={secondaryHref}
+        class="rounded-lg border-[1.5px] border-gold-light px-6 py-3 text-sm font-bold text-cream transition-colors hover:bg-white/10"
+      >
+        {secondaryLabel}
+      </a>
+    </div>
+  </div>
+</section>

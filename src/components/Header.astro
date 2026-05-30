@@ -1,0 +1,82 @@
+---
+import { company, navLinks } from "../data/site";
+---
+
+<header class="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+    <a href="/" class="font-heading text-xl font-extrabold text-forest-700">
+      {company.wordmark}<span class="text-gold-bright">.</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-7 md:flex" aria-label="Primary">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-ink/80 transition-colors hover:text-forest-700"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="/contact"
+        class="rounded-md bg-gold px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-gold-deep"
+      >
+        Contact
+      </a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="md:hidden"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-forest-700">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu panel -->
+  <nav
+    id="mobile-menu"
+    class="hidden border-t border-black/5 bg-white px-5 py-4 md:hidden"
+    aria-label="Mobile"
+  >
+    <ul class="flex flex-col gap-3">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="block py-1 text-base font-medium text-ink/80">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a
+          href="/contact"
+          class="mt-1 inline-block rounded-md bg-gold px-4 py-2 text-base font-bold text-white"
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  toggle?.addEventListener("click", () => {
+    const isOpen = menu?.classList.toggle("hidden") === false;
+    toggle.setAttribute("aria-expanded", String(isOpen));
+  });
+</script>

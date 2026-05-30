@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Brand theme tokens. Each --color-* / --font-* generates matching utilities
+   (e.g. bg-forest-700, text-gold-light, font-heading). */
+@theme {
+  --color-forest-900: #23440c;
+  --color-forest-800: #2f5911;
+  --color-forest-700: #3f7717;
+  --color-leaf-600: #466c22;
+  --color-leaf-700: #4d701e;
+
+  --color-gold-bright: #c18215;
+  --color-gold: #a06c11;
+  --color-gold-light: #e0a83f;
+  --color-gold-deep: #80570e;
+
+  --color-cream: #fbfaf6;
+  --color-ink: #1f2b14;
+
+  --font-heading: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Site-wide defaults */
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: #ffffff;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+/* Locked visual-system gradients (exact values from the approved design) */
+.hero-forest {
+  background: linear-gradient(160deg, var(--color-forest-900), var(--color-forest-800) 55%, var(--color-forest-700));
+}
+.accent-bar {
+  background: linear-gradient(var(--color-gold-bright), var(--color-gold-deep));
+}
+
+/* Token note: spec's green-600 / green-650 map to leaf-600 / leaf-700 here to
+   avoid colliding with Tailwind's default green-* palette. */

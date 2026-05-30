@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CTASection from "../components/CTASection.astro";
+import { services } from "../data/site";
+---
+
+<Base
+  title="Services — Hunn Digital Solutions"
+  description="Custom software development, technical consulting and advisory, and end-to-end SaaS product development for startups and growing teams."
+>
+  <section class="hero-forest relative text-white">
+    <div class="accent-bar absolute left-0 top-0 bottom-0 w-[7px]"></div>
+    <div class="mx-auto max-w-6xl px-7 py-16 md:py-20">
+      <p class="text-xs font-bold uppercase tracking-[0.15em] text-gold-light">Services</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl">
+        How we help you <span class="text-gold-light">ship.</span>
+      </h1>
+      <p class="mt-5 max-w-xl text-cream/85">
+        Three focused ways we partner with you — from first build to scaling product.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="grid gap-6 md:grid-cols-3">
+      {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </section>
+
+  <CTASection heading="Not sure which fits? Let's talk it through." />
+</Base>
