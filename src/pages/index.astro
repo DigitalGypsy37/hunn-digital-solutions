@@ -1,9 +1,77 @@
 ---
 import Base from "../layouts/Base.astro";
+import Hero from "../components/Hero.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import CTASection from "../components/CTASection.astro";
+import { company, services, product, valueProps } from "../data/site";
 ---
 
-<Base title="Hunn Digital Solutions" description="Software that grows your business.">
+<Base
+  title="Hunn Digital Solutions — Custom Software, Consulting & SaaS"
+  description="We design, build, and ship digital products for startups and growing teams. Custom software development, technical consulting, and our own SaaS."
+>
+  <Hero
+    eyebrow="Custom Software · Consulting · SaaS"
+    headlineLead="Software that grows your"
+    headlineHighlight="business."
+    subtext={company.blurb}
+    primaryLabel="Book a call"
+    primaryHref="/contact"
+    secondaryLabel="View services"
+    secondaryHref="/services"
+  />
+
+  <!-- Value props -->
   <section class="mx-auto max-w-6xl px-5 py-16">
-    <h1 class="font-heading text-3xl font-extrabold text-forest-700">Header + Footer smoke test</h1>
+    <div class="grid gap-8 md:grid-cols-3">
+      {
+        valueProps.map((vp) => (
+          <div>
+            <h2 class="text-lg font-extrabold text-forest-700">{vp.title}</h2>
+            <p class="mt-2 text-sm leading-relaxed text-ink/75">{vp.description}</p>
+          </div>
+        ))
+      }
+    </div>
   </section>
+
+  <!-- Services preview -->
+  <section class="bg-cream">
+    <div class="mx-auto max-w-6xl px-5 py-16">
+      <p class="text-xs font-bold uppercase tracking-wider text-gold-deep">What we do</p>
+      <h2 class="mt-2 text-3xl font-extrabold text-forest-700">Three ways we help</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+      <a href="/services" class="mt-8 inline-block font-bold text-gold-deep hover:underline">
+        Explore our services →
+      </a>
+    </div>
+  </section>
+
+  <!-- Product teaser -->
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="rounded-2xl border border-black/5 p-8 md:p-10">
+      <p class="text-xs font-bold uppercase tracking-wider text-gold-deep">Our product</p>
+      <h2 class="mt-2 text-2xl font-extrabold text-forest-700">{product.name}</h2>
+      <p class="mt-2 max-w-2xl text-ink/80">{product.pitch}</p>
+      <a href="/products" class="mt-5 inline-block font-bold text-gold-deep hover:underline">
+        See {product.name} →
+      </a>
+    </div>
+  </section>
+
+  <!-- Social proof placeholder -->
+  <section class="bg-cream">
+    <div class="mx-auto max-w-6xl px-5 py-12 text-center">
+      <p class="text-sm font-semibold uppercase tracking-wider text-ink/50">
+        Trusted by growing teams
+      </p>
+      <p class="mx-auto mt-3 max-w-xl text-sm text-ink/50">
+        [Placeholder] Client logos and testimonials will appear here once available.
+      </p>
+    </div>
+  </section>
+
+  <CTASection heading="Ready to build something that lasts?" />
 </Base>
