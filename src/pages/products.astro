@@ -1,0 +1,25 @@
+---
+import Base from "../layouts/Base.astro";
+import ProductCard from "../components/ProductCard.astro";
+import { product } from "../data/site";
+---
+
+<Base
+  title={`${product.name} — Hunn Digital Solutions`}
+  description={product.pitch}
+>
+  <section class="hero-forest relative text-white">
+    <div class="accent-bar absolute left-0 top-0 bottom-0 w-[7px]"></div>
+    <div class="mx-auto max-w-6xl px-7 py-16 md:py-20">
+      <p class="text-xs font-bold uppercase tracking-[0.15em] text-gold-light">Our Product</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl">
+        {product.name}<span class="text-gold-light">.</span>
+      </h1>
+      <p class="mt-5 max-w-xl text-cream/85">{product.pitch}</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <ProductCard />
+  </section>
+</Base>
