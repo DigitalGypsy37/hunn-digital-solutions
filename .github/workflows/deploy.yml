@@ -27,6 +27,10 @@ jobs:
         # Pages artifact. The Web3Forms key is inlined at build time, so it
         # must be present here. Add it under Settings → Secrets and variables
         # → Actions → New repository secret. Builds fine if unset (empty key).
+        with:
+          # Astro 6 requires Node >=22.12 (see package.json engines);
+          # the action defaults to Node 20.
+          node-version: 22
         env:
           PUBLIC_WEB3FORMS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_KEY }}
 
