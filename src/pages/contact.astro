@@ -1,0 +1,42 @@
+---
+import Base from "../layouts/Base.astro";
+import ContactForm from "../components/ContactForm.astro";
+import { company } from "../data/site";
+---
+
+<Base
+  title="Contact — Hunn Digital Solutions"
+  description="Tell us what you're building. Book a call or send a message and we'll be in touch."
+>
+  <section class="hero-forest relative text-white">
+    <div class="accent-bar absolute left-0 top-0 bottom-0 w-[7px]"></div>
+    <div class="mx-auto max-w-6xl px-7 py-16 md:py-20">
+      <p class="text-xs font-bold uppercase tracking-[0.15em] text-gold-light">Contact</p>
+      <h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-tight md:text-5xl">
+        Let's talk about your <span class="text-gold-light">project.</span>
+      </h1>
+    </div>
+  </section>
+
+  <section class="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2">
+    <div>
+      <h2 class="text-xl font-extrabold text-forest-700">Send us a message</h2>
+      <p class="mt-2 text-sm text-ink/70">
+        We typically reply within one business day.
+      </p>
+      <div class="mt-6">
+        <ContactForm />
+      </div>
+    </div>
+    <div>
+      <h2 class="text-xl font-extrabold text-forest-700">Prefer email?</h2>
+      <p class="mt-2 text-sm text-ink/75">Reach us directly anytime:</p>
+      <a
+        href={`mailto:${company.email}`}
+        class="mt-2 inline-block font-bold text-gold-deep hover:underline"
+      >
+        {company.email}
+      </a>
+    </div>
+  </section>
+</Base>
