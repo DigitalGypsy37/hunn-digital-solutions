@@ -4,6 +4,7 @@ import Hero from "../components/Hero.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 import CTASection from "../components/CTASection.astro";
 import { company, services, product, valueProps } from "../data/site";
+import { withBase } from "../lib/url";
 ---
 
 <Base
@@ -43,7 +44,7 @@ import { company, services, product, valueProps } from "../data/site";
       <div class="mt-8 grid gap-6 md:grid-cols-3">
         {services.map((service) => <ServiceCard service={service} />)}
       </div>
-      <a href="/services" class="mt-8 inline-block font-bold text-gold-deep hover:underline">
+      <a href={withBase("/services")} class="mt-8 inline-block font-bold text-gold-deep hover:underline">
         Explore our services →
       </a>
     </div>
@@ -55,7 +56,7 @@ import { company, services, product, valueProps } from "../data/site";
       <p class="text-xs font-bold uppercase tracking-wider text-gold-deep">Our product</p>
       <h2 class="mt-2 text-2xl font-extrabold text-forest-700">{product.name}</h2>
       <p class="mt-2 max-w-2xl text-ink/80">{product.pitch}</p>
-      <a href="/products" class="mt-5 inline-block font-bold text-gold-deep hover:underline">
+      <a href={withBase("/products")} class="mt-5 inline-block font-bold text-gold-deep hover:underline">
         See {product.name} →
       </a>
     </div>

@@ -12,6 +12,8 @@ const {
   ctaLabel = "Book a call",
   ctaHref = "/contact",
 } = Astro.props;
+
+import { withBase } from "../lib/url";
 ---
 
 <section class="hero-forest text-white">
@@ -21,7 +23,7 @@ const {
       <p class="mt-2 max-w-lg text-cream/80">{subtext}</p>
     </div>
     <a
-      href={ctaHref}
+      href={withBase(ctaHref)}
       class="shrink-0 rounded-lg bg-gold px-6 py-3 text-sm font-extrabold text-white transition-colors hover:bg-gold-deep"
     >
       {ctaLabel}

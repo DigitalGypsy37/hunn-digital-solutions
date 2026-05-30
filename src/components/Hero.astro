@@ -10,6 +10,8 @@ interface Props {
   secondaryHref: string;
 }
 
+import { withBase } from "../lib/url";
+
 const {
   eyebrow,
   headlineLead,
@@ -34,13 +36,13 @@ const {
     <p class="mt-5 max-w-xl text-base text-cream/85 md:text-lg">{subtext}</p>
     <div class="mt-8 flex flex-wrap gap-4">
       <a
-        href={primaryHref}
+        href={withBase(primaryHref)}
         class="rounded-lg bg-gold px-6 py-3 text-sm font-extrabold text-white transition-colors hover:bg-gold-deep"
       >
         {primaryLabel}
       </a>
       <a
-        href={secondaryHref}
+        href={withBase(secondaryHref)}
         class="rounded-lg border-[1.5px] border-gold-light px-6 py-3 text-sm font-bold text-cream transition-colors hover:bg-white/10"
       >
         {secondaryLabel}

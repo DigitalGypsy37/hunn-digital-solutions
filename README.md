@@ -30,5 +30,15 @@ replaced.
 
 ## Deploy
 
-Static output in `dist/`. Deploy to Railway (static), Netlify, or Vercel. Set
-`PUBLIC_WEB3FORMS_KEY` as an environment variable in the host.
+Static output in `dist/`. Set `PUBLIC_WEB3FORMS_KEY` in the host's build
+environment (it is inlined at build time).
+
+**GitHub Pages (current):** `.github/workflows/deploy.yml` builds and deploys on
+every push to `main`. One-time setup: Settings → Pages → Source: **GitHub
+Actions**, and add `PUBLIC_WEB3FORMS_KEY` under Settings → Secrets and variables
+→ Actions. Served at `https://DigitalGypsy37.github.io/hunn-digital-solutions/`.
+
+**Moving to a custom domain:** set `site` to the domain and remove `base` in
+`astro.config.mjs` (this drops the `/hunn-digital-solutions/` path prefix), then
+add the domain in the Pages settings. Other static hosts (Railway, Netlify,
+Vercel) also work — point them at `npm run build` / `dist/`.

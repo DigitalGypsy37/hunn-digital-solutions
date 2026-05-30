@@ -7,7 +7,10 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.hunndigital.com",
+  // GitHub Pages project site. When moving to the real domain, set
+  // site to the domain and remove `base`.
+  site: "https://DigitalGypsy37.github.io",
+  base: "/hunn-digital-solutions",
 
   vite: {
     plugins: [tailwindcss()]

@@ -1,10 +1,11 @@
 ---
 import { company, navLinks } from "../data/site";
+import { withBase } from "../lib/url";
 ---
 
 <header class="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-    <a href="/" class="font-heading text-xl font-extrabold text-forest-700">
+    <a href={withBase("/")} class="font-heading text-xl font-extrabold text-forest-700">
       {company.wordmark}<span class="text-gold-bright">.</span>
     </a>
 
@@ -13,7 +14,7 @@ import { company, navLinks } from "../data/site";
       {
         navLinks.map((link) => (
           <a
-            href={link.href}
+            href={withBase(link.href)}
             class="text-sm font-medium text-ink/80 transition-colors hover:text-forest-700"
           >
             {link.label}
@@ -21,7 +22,7 @@ import { company, navLinks } from "../data/site";
         ))
       }
       <a
-        href="/contact"
+        href={withBase("/contact")}
         class="rounded-md bg-gold px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-gold-deep"
       >
         Contact
@@ -54,7 +55,7 @@ import { company, navLinks } from "../data/site";
       {
         navLinks.map((link) => (
           <li>
-            <a href={link.href} class="block py-1 text-base font-medium text-ink/80">
+            <a href={withBase(link.href)} class="block py-1 text-base font-medium text-ink/80">
               {link.label}
             </a>
           </li>
@@ -62,7 +63,7 @@ import { company, navLinks } from "../data/site";
       }
       <li>
         <a
-          href="/contact"
+          href={withBase("/contact")}
           class="mt-1 inline-block rounded-md bg-gold px-4 py-2 text-base font-bold text-white"
         >
           Contact

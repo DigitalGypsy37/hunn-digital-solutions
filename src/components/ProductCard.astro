@@ -1,5 +1,6 @@
 ---
 import { product } from "../data/site";
+import { withBase } from "../lib/url";
 ---
 
 <article class="overflow-hidden rounded-2xl border border-black/5 bg-cream shadow-sm">
@@ -10,7 +11,7 @@ import { product } from "../data/site";
       <p class="mt-2 font-semibold text-ink/90">{product.pitch}</p>
       <p class="mt-4 text-sm leading-relaxed text-ink/75">{product.description}</p>
       <a
-        href={product.signupHref}
+        href={withBase(product.signupHref)}
         class="mt-6 inline-block rounded-lg border-[1.5px] border-gold bg-white px-6 py-3 text-sm font-extrabold text-gold-deep transition-colors hover:bg-gold hover:text-white"
       >
         Try {product.name} — Sign up
